@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="jquery-3.1.0.min.js"></script>
+<script src="../src/jquery.gridsterize.js"></script>
+</head>
+<body>
+<div id="root" style="background-color: gray; width: 500px"> 
+	<div style="background-color: yellow;" data-x="1" data-y="0" data-width=12>
+		<div>1</div>
+		<div id="set1" style="background-color: red;"> 
+			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+		</div>
+	</div>
+	<div style="background-color: yellow;" data-x="1" data-y="5" data-width=12>
+		<div>2</div>
+		<div id="set2" style="background-color: red;"> 
+			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+		</div>
+	</div>
+	<div style="background-color: yellow;" data-x="1" data-y="10" data-width=12>
+		<div>3</div>
+		<div id="set3" style="background-color: red;"> 
+			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+		</div>
+	</div>
+	<div style="background-color: yellow;" data-x="1" data-y="15" data-width=12>
+		<div>4<br/>
+		Autoexpanding<br/><br/>
+		</div>
+		<div id="set4" style="background-color: red;"> 
+			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+for(var i = 0; i < 400; i++){
+	$("#root").append("<div style='background-color: green;' data-x='0' data-y='" + (21 + i * 20)+ "' data-width='2' data-height='1'>Load test</div>");
+}
+var start = new Date().getTime();
+	$("#set1").gridsterize({autoSize: true});
+	$("#set2").gridsterize({autoSize: true});
+	$("#set3").gridsterize({autoSize: true});
+	$("#set4").gridsterize({autoSize: true});
+	$("#set5").gridsterize({autoSize: true});
+	$("#root").gridsterize({autoSize: true, fixOverlaps: false});//when you don't need to fix the overlaps. Lots of gaps simulated
+var end = new Date().getTime();
+var time = end - start;
+console.log('Execution time: ' + time);
+</script>
+</html>

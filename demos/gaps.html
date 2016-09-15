@@ -1,0 +1,15 @@
+<html>
+<head>
+<script src="jquery-3.1.0.min.js"></script>
+<script src="../src/jquery.gridsterize.js"></script>
+</head>
+<body>
+<div id="root" style="background-color: gray; width: 500px"> 
+	<div id="action" style="background-color: green;" data-x="0" data-y="0" data-width="2" data-height="1">1</div>
+	<div id="action" style="background-color: green;" data-x="0" data-y="4" data-width="2" data-height="1">2</div>
+</div>
+</body>
+<script>
+	$("#root").gridsterize({autoSize: true, fixGaps: true});
+</script>
+</html>
