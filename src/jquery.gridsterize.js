@@ -21,11 +21,11 @@ $.fn.gridsterize = function (opts) {
         var tbMargin = 2 * settings.margins[1];
         var colWidth = (settings.colWidth + lrMargin);
         var colHeight = (settings.colHeight + tbMargin);
-        var r = getCol($this) * colWidth;
+        var l = getCol($this) * colWidth;
         var w = getWidth($this) * colWidth - lrMargin;
         var t = getRow($this) * colHeight;
         var h = getHeight($this) * colHeight - tbMargin;
-        $this.css("left", r + "px");
+        $this.css("left", l + "px");
         $this.css("width", w + "px");
         $this.css("top", t + "px");
         $this.css("height", h + "px");
@@ -33,10 +33,8 @@ $.fn.gridsterize = function (opts) {
         $this.css("display") !== "none" && $this.css("display", "inline-block");
         $this.css("position", "absolute");
         $this.css("margin", settings.margins[1] + "px " + settings.margins[0] + "px");
-        var left = r + w + lrMargin;
-        var bottom = t + h + tbMargin;
-        if (width < left) width = left;
-        if (height < bottom) height = bottom;
+        width = Math.max(width, l + w + lrMargin);
+        height = Math.max(height, t + h + tbMargin);
     });
     if (settings.autoSize) {
         this.css("display", "inline-block");
@@ -64,7 +62,7 @@ $.fn.gridsterize = function (opts) {
         if (widget.data("auto-height")) {
             height = parseInt(parseInt(widget.children().height()) / (settings.colHeight + 2 * settings.margins[1])) + 1;
         }
-        return Math.max(parseInt(widget.data("min-height")), parseInt(height)) || 1;
+        return Math.max(parseInt(widget.data("min-height")) || 1, parseInt(height)) || 1;
     }
 
     function isHidden(widget) {
