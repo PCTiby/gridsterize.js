@@ -1,7 +1,23 @@
+/**
+ * Changing css styles: display, position, left, top, width, height, margin
+ *
+ * @param cellSize - [width, height] of a cell.
+ * @param margins - [horizontalMargin, verticalMargin] of a cell.
+ * @param fixOverlaps - move widgets down if they are overlapped.
+ * @param fixGaps - move widgets up if there is room.
+ * 
+ * Widget properties:
+ *	data-col
+ *	data-row
+ * 	data-width
+ *	data-height
+ *	min-height
+ *	auto-height - if this is set to true the widget needs to have exactly one children with css height: auto and display block/inline-block
+ *	is-separator - Consider widget as a separator - widgets will be prevented in moving up (separator height is actual height - 1)
+ */
 $.fn.gridsterize = function (opts) {
     var settings = $.extend({
-        colWidth: 30,
-        colHeight: 30,
+        cellSizes: [30, 30],
         margins: [1, 10],
         fixOverlaps: true,
         fixGaps: true,
@@ -19,17 +35,16 @@ $.fn.gridsterize = function (opts) {
         var $this = $(this);
         var lrMargin = 2 * settings.margins[0];
         var tbMargin = 2 * settings.margins[1];
-        var colWidth = (settings.colWidth + lrMargin);
-        var colHeight = (settings.colHeight + tbMargin);
-        var l = getCol($this) * colWidth;
-        var w = getWidth($this) * colWidth - lrMargin;
-        var t = getRow($this) * colHeight;
-        var h = getHeight($this) * colHeight - tbMargin;
+        var cWidth = (settings.cellSizes[0] + lrMargin);
+        var cHeight = (settings.cellSizes[1] + tbMargin);
+        var l = getCol($this) * cWidth;
+        var w = getWidth($this) * cWidth - lrMargin;
+        var t = getRow($this) * cHeight;
+        var h = getHeight($this) * cHeight - tbMargin;
         $this.css("left", l + "px");
         $this.css("width", w + "px");
         $this.css("top", t + "px");
         $this.css("height", h + "px");
-        $this.css("position", "");
         $this.css("display") !== "none" && $this.css("display", "inline-block");
         $this.css("position", "absolute");
         $this.css("margin", settings.margins[1] + "px " + settings.margins[0] + "px");
@@ -60,7 +75,7 @@ $.fn.gridsterize = function (opts) {
         var height = widget.data("height");
         if (height) return parseInt(height);
         if (widget.data("auto-height")) {
-            height = parseInt(parseInt(widget.children().height()) / (settings.colHeight + 2 * settings.margins[1])) + 1;
+            height = parseInt(parseInt(widget.children().height()) / (settings.cellSizes[1] + 2 * settings.margins[1])) + 1;
         }
         return Math.max(parseInt(widget.data("min-height")) || 1, parseInt(height)) || 1;
     }
