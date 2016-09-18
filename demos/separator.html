@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="jquery-3.1.0.min.js"></script>
+<script src="../src/jquery.gridsterize.js"></script>
+</head>
+<body>
+<div id="root" style="background-color: gray; width: 500px"> 
+	<div id="action" style="background-color: green;" data-col="0" data-row="0" data-width="4" data-height="2">1</div>
+	<div id="action" style="background-color: red;" data-col="0" data-row="1" data-width="5" data-height="1" data-is-separator=true>Separator</div>
+	<div id="action" style="background-color: rgba(0,1,0,0.5);" data-col="4" data-row="4" data-width="4" data-height="2">2</div>
+	<div id="action" style="background-color: blue" data-col="8" data-row="4" data-width="4" data-height="3">3</div>
+	<div id="action" style="background-color: yellow" data-col="11" data-row="4" data-width="4" data-height="2">4</div>
+</div>
+</body>
+<script>
+	$("#root").gridsterize({autoSize: true});
+	setTimeout(function(){
+		$("#action").css("display", "inline-block");
+		$("#root").gridsterize({autoSize: true});
+	}, 3000);
+	
+</script>
+</html>

@@ -14,7 +14,7 @@
 			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-col="1" data-row="5" data-width=12 data-auto-height="true">
+	<div style="background-color: yellow;" data-col="1" data-row="0" data-width=12 data-auto-height="true">
 		<div>2</div>
 		<div id="set2" style="background-color: red;"> 
 			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
@@ -23,7 +23,7 @@
 			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-col="1" data-row="10" data-width=12 data-auto-height="true">
+	<div style="background-color: yellow;" data-col="1" data-row="0" data-width=12 data-auto-height="true">
 		<div>3</div>
 		<div id="set3" style="background-color: red;"> 
 			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
@@ -32,7 +32,7 @@
 			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-col="1" data-row="15" data-width=12 data-auto-height="true">
+	<div style="background-color: yellow;" data-col="1" data-row="0" data-width=12 data-auto-height="true">
 		<div>4<br/>
 		Autoexpanding<br/><br/>
 		</div>
@@ -46,16 +46,15 @@
 </div>
 </body>
 <script>
-for(var i = 0; i < 400; i++){
-	$("#root").append("<div style='background-color: green;' data-col='0' data-row='" + (21 + i * 20)+ "' data-width='2' data-height='1'>Load test</div>");
+for(var i = 0; i < 50; i++){
+	$("#root").append("<div style='background-color: green;' data-col='0' data-row='0' data-width='2' data-height='1'>Load test</div>");
 }
 var start = new Date().getTime();
 	$("#set1").gridsterize({autoSize: true});
 	$("#set2").gridsterize({autoSize: true});
 	$("#set3").gridsterize({autoSize: true});
 	$("#set4").gridsterize({autoSize: true});
-	$("#set5").gridsterize({autoSize: true});
-	$("#root").gridsterize({autoSize: true, fixOverlaps: false});//when you don't need to fix the overlaps. Lots of gaps simulated
+	$("#root").gridsterize({autoSize: true});
 var end = new Date().getTime();
 var time = end - start;
 console.log('Execution time: ' + time);

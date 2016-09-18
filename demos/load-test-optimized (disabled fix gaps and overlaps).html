@@ -5,49 +5,49 @@
 </head>
 <body>
 <div id="root" style="background-color: gray; width: 500px"> 
-	<div style="background-color: yellow;" data-x="1" data-y="0" data-width=12>
+	<div style="background-color: yellow;" data-col="1" data-row="0" data-width=12 data-auto-height="true">
 		<div>1</div>
 		<div id="set1" style="background-color: red;"> 
-			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-x="1" data-y="5" data-width=12>
+	<div style="background-color: yellow;" data-col="1" data-row="5" data-width=12 data-auto-height="true">
 		<div>2</div>
 		<div id="set2" style="background-color: red;"> 
-			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-x="1" data-y="10" data-width=12>
+	<div style="background-color: yellow;" data-col="1" data-row="10" data-width=12 data-auto-height="true">
 		<div>3</div>
 		<div id="set3" style="background-color: red;"> 
-			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
-	<div style="background-color: yellow;" data-x="1" data-y="15" data-width=12>
+	<div style="background-color: yellow;" data-col="1" data-row="15" data-width=12 data-auto-height="true">
 		<div>4<br/>
 		Autoexpanding<br/><br/>
 		</div>
 		<div id="set4" style="background-color: red;"> 
-			<div style="background-color: black" data-x="0" data-y="0" data-width="2" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="1" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="2" data-width="1" data-height="1"></div>
-			<div style="background-color: black" data-x="0" data-y="3" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="0" data-width="2" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="1" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="2" data-width="1" data-height="1"></div>
+			<div style="background-color: black" data-col="0" data-row="3" data-width="1" data-height="1"></div>
 		</div>
 	</div>
 </div>
 </body>
 <script>
 for(var i = 0; i < 400; i++){
-	$("#root").append("<div style='background-color: green;' data-x='0' data-y='" + (i + 21)+ "' data-width='2' data-height='1'>Load test</div>");
+	$("#root").append("<div style='background-color: green;' data-col='0' data-row='" + (i + 21)+ "' data-width='2' data-height='1'>Load test</div>");
 }
 var start = new Date().getTime();
 	$("#set1").gridsterize({autoSize: true});
